@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             flexibleSpace: Padding(
               padding: EdgeInsets.all(12.0),
               child: SizedBox(
-                height: screenSize.height * 0.15,
+                height: screenSize.height * 0.20,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,

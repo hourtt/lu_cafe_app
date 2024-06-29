@@ -671,7 +671,13 @@ class BottomSheetContent extends StatefulWidget {
 }
 
 class _BottomSheetContentState extends State<BottomSheetContent> {
+  late String currentOption;
   int quantityCount = 1;
+  @override
+  void initState() {
+    super.initState();
+    currentOption = widget.currentOption;
+  }
 
   void decrementQuantity() {
     setState(() {
@@ -778,11 +784,13 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                 ),
                 leading: Radio<String>(
                     value: options[0],
-                    groupValue: widget.currentOption,
+                    groupValue: currentOption,
                     onChanged: (value) {
-                      widget.onOptionChanged(value.toString());
-                    }
-                    ),
+                      setState(() { //* Include setState
+                        currentOption = value!; //* if the current option is not equal with the value
+                      });
+                      widget.onOptionChanged(value!);
+                    }),
               ),
               ListTile(
                 title: Text(
@@ -791,10 +799,13 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                 ),
                 leading: Radio<String>(
                   value: options[1],
-                  groupValue: widget.currentOption,
+                  groupValue: currentOption,
                   onChanged: (value) {
-                      widget.onOptionChanged(value.toString());
-                    }
+                    setState(() {
+                      currentOption = value!;
+                    });
+                    widget.onOptionChanged(value!);
+                  },
                 ),
               ),
               ListTile(
@@ -803,12 +814,14 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 leading: Radio<String>(
-                  value: options[2],
-                  groupValue: widget.currentOption,
-                  onChanged: (value) {
-                      widget.onOptionChanged(value.toString());
-                    }
-                ),
+                    value: options[2],
+                    groupValue: currentOption, //* Change from widget.currentOption to currentOption
+                    onChanged: (value) {
+                      setState(() {
+                        currentOption = value!;
+                      });
+                      widget.onOptionChanged(value!);
+                    }),
               ),
               ListTile(
                 title: Text(
@@ -816,12 +829,14 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 leading: Radio<String>(
-                  value: options[3],
-                  groupValue: widget.currentOption,
-                  onChanged: (value) {
-                      widget.onOptionChanged(value.toString());
-                    }
-                ),
+                    value: options[3],
+                    groupValue: currentOption,
+                    onChanged: (value) {
+                      setState(() {
+                        currentOption = value!;
+                      });
+                      widget.onOptionChanged(value!);
+                    }),
               ),
             ],
           ),
