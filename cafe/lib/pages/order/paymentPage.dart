@@ -34,12 +34,10 @@ class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     // Debug prints to check the order items
-    print("Order Items: ${widget.orderItems}");
-
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
+          colors: const [
             Color.fromARGB(255, 74, 140, 215),
             Color.fromARGB(255, 217, 222, 222)
           ],
@@ -116,7 +114,7 @@ class _PaymentPageState extends State<PaymentPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "${widget.orderItems[i]['name'] ?? 'Unknown'} x${widget.orderItems[i]['quantity'] ?? 0}",
+                                  "${widget.orderItems[i]['name']} x${widget.orderItems[i]['quantity']}",
                                   style: GoogleFonts.assistant(
                                     fontSize: 16,
                                   ),

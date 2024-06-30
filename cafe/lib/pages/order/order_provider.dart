@@ -5,7 +5,7 @@ class OrderProvider extends ChangeNotifier {
 
   List<Map<String, dynamic>> get orderItems => _orderItems;
 
-  void addItem(Map<String, dynamic> item) {
+  void addItem(Map<String, dynamic> item) { //* add an item to the list
     _orderItems.add(item);
     notifyListeners();
   }

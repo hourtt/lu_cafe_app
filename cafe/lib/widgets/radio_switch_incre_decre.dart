@@ -47,12 +47,14 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
 
   void addToCart() {
     Map<String, dynamic> item = {
+      //* Store an item name, price, quantity, quality
       'name': widget.itemName,
       'price': widget.price,
       'quantity': quantityCount,
       'quality': currentOption,
     };
-    Provider.of<OrderProvider>(context, listen: false).addItem(item);
+    Provider.of<OrderProvider>(context, listen: false)
+        .addItem(item); //* Using provider to add an item to the order page
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

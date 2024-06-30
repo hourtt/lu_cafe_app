@@ -13,6 +13,7 @@ class OrderItems extends StatefulWidget {
   final VoidCallback onDelete;
 
   const OrderItems({
+    //*orderItems functions
     required this.name,
     required this.price,
     required this.image,
@@ -107,7 +108,7 @@ class _OrderItemsState extends State<OrderItems> {
                     ],
                   ),
                   child: Image.asset(
-                    widget.image, // Use the provided image path
+                    widget.image, //* Modified
                     height: 100,
                   ),
                 ),

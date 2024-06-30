@@ -1,28 +1,30 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, library_private_types_in_public_api
 
 import 'package:cafe/pages/notificationPage.dart';
+import 'package:cafe/pages/order/orderItems.dart';
 import 'package:cafe/pages/order/order_provider.dart';
 import 'package:cafe/pages/order/paymentPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'orderItems.dart';
 
 class OrderPage extends StatefulWidget {
   const OrderPage({Key? key});
 
   @override
-  _OrderPageState createState() => _OrderPageState();
+  State<OrderPage> createState() => _OrderPageState();
 }
 
 class _OrderPageState extends State<OrderPage> {
+  //* Update item quantity
   void updateQuantity(BuildContext context, int index, int newQuantity) {
     Provider.of<OrderProvider>(context, listen: false).updateQuantity(index,
         newQuantity); //* Using provider to listen to the item quantity which is updated
   }
 
   void deleteItem(BuildContext context, int index) {
-    Provider.of<OrderProvider>(context, listen: false).removeItem(index); //* Using provider to listen and remove an item 
+    Provider.of<OrderProvider>(context, listen: false)
+        .removeItem(index); //* Using provider to listen and remove an item
   }
 
   // Calculate item total price
@@ -36,7 +38,7 @@ class _OrderPageState extends State<OrderPage> {
     double total = 0;
     for (var item in orderItems) {
       double price = double.parse(item['price'].substring(1));
-      total += price * item['quantity'];
+      total += price * item['quantity']; // * Sum the item total
     }
     return total;
   }
@@ -136,13 +138,14 @@ class _OrderPageState extends State<OrderPage> {
                     ),
                     SizedBox(height: screenSize.height * 0.01),
                     for (int i = 0; i < orderItems.length; i++)
-                      Padding( 
+                      Padding(
                         padding:
                             EdgeInsets.only(bottom: screenSize.height * 0.01),
-                        child: OrderItems(//* Item name,price,quantity at here
+                        child: OrderItems( //* Check this function on orderItems.dart
+                          //* Item name,price,quantity at here
                           name: orderItems[i]['name'] ?? '',
                           price: orderItems[i]['price'] ?? 0.0,
-                          image: "images/drink/${i+1}.png",
+                          image: "images/drink/${i + 1}.png",
                           quantity: orderItems[i]['quantity'] ?? 1,
                           onQuantityChanged: (newQuantity) =>
                               updateQuantity(context, i, newQuantity),
