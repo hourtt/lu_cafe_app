@@ -35,7 +35,10 @@ class _HomePageState extends State<HomePage> {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color.fromARGB(255, 74, 140, 215), Color.fromARGB(255, 217, 222, 222)],
+          colors: [
+            Color.fromARGB(255, 74, 140, 215),
+            Color.fromARGB(255, 217, 222, 222)
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -43,7 +46,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(screenSize.height * 0.11), 
+          preferredSize: Size.fromHeight(screenSize.height * 0.11),
           child: AppBar(
             elevation: 0.0,
             backgroundColor: Colors.transparent,
@@ -51,12 +54,11 @@ class _HomePageState extends State<HomePage> {
             flexibleSpace: Padding(
               padding: EdgeInsets.all(12.0),
               child: SizedBox(
-                height: screenSize.height * 0.20,
+                height: screenSize.height * 0.23,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -89,7 +91,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
-                    
                   ],
                 ),
               ),
@@ -129,7 +130,8 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.all(defaultPadding),
                 sliver: SliverToBoxAdapter(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: screenSize.height * 0.01),
+                    padding: EdgeInsets.symmetric(
+                        vertical: screenSize.height * 0.01),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -141,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                             color: const Color.fromARGB(255, 255, 249, 249),
                           ),
                         ),
-                        SizedBox(width : 5),
+                        SizedBox(width: 5),
                         TextButton(
                           child: Text(
                             "see more",
