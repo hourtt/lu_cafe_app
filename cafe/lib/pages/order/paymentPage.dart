@@ -1,8 +1,9 @@
-// ignore_for_file: sort_child_properties_last, prefer_const_constructors, prefer_const_literals_to_create_immutables, library_private_types_in_public_api
+// ignore_for_file: sort_child_properties_last
 
 import 'package:cafe/pages/order/trackOrder.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class PaymentPage extends StatefulWidget {
   final List<Map<String, dynamic>> orderItems;
 
@@ -17,7 +18,7 @@ class _PaymentPageState extends State<PaymentPage> {
   bool isCreditCardSelected = false;
 
   double calculateItemTotalPrice(int index) {
-    double price = double.parse(widget.orderItems[index]['price'].substring(1)); 
+    double price = double.parse(widget.orderItems[index]['price'].substring(1));
     return price * widget.orderItems[index]['quantity'];
   }
 
@@ -32,20 +33,24 @@ class _PaymentPageState extends State<PaymentPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Debug prints to check the order items
+    print("Order Items: ${widget.orderItems}");
+
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors:  [Color.fromARGB(255, 74, 140, 215), Color.fromARGB(255, 217, 222, 222)],
+          colors: [
+            Color.fromARGB(255, 74, 140, 215),
+            Color.fromARGB(255, 217, 222, 222)
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
       ),
       child: Scaffold(
-        backgroundColor:
-            Colors.transparent, 
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor:
-              Colors.transparent, 
+          backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
             onPressed: () => Navigator.of(context).pop(),
@@ -79,14 +84,6 @@ class _PaymentPageState extends State<PaymentPage> {
                     color: Colors.white,
                     thickness: 2,
                   ),
-                  // decoration: BoxDecoration(
-                  //   gradient: LinearGradient(
-                  //     colors: [Colors.red, Colors.blue],
-                  //     begin: Alignment.centerLeft,
-                  //     end: Alignment.centerRight,
-                  //   ),
-                  //   borderRadius: BorderRadius.all(Radius.circular(2)),
-                  // ),
                   height: 4,
                 ),
                 Container(
@@ -119,7 +116,7 @@ class _PaymentPageState extends State<PaymentPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "${widget.orderItems[i]['name']} x${widget.orderItems[i]['quantity']}",
+                                  "${widget.orderItems[i]['name'] ?? 'Unknown'} x${widget.orderItems[i]['quantity'] ?? 0}",
                                   style: GoogleFonts.assistant(
                                     fontSize: 16,
                                   ),
@@ -215,7 +212,6 @@ class _PaymentPageState extends State<PaymentPage> {
                   ),
                 ),
                 SizedBox(height: 5),
-                // Payment Method
                 Container(
                   margin: EdgeInsets.all(5),
                   height: 120,
@@ -224,7 +220,7 @@ class _PaymentPageState extends State<PaymentPage> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(10), // Adjust the padding as needed
+                    padding: EdgeInsets.all(10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -255,8 +251,7 @@ class _PaymentPageState extends State<PaymentPage> {
                                   setState(() {
                                     isCashSelected = value!;
                                     if (isCashSelected) {
-                                      isCreditCardSelected =
-                                          false; // Uncheck Credit Card if Cash is selected
+                                      isCreditCardSelected = false;
                                     }
                                   });
                                 },
@@ -265,7 +260,6 @@ class _PaymentPageState extends State<PaymentPage> {
                             ),
                           ],
                         ),
-                        //row 2
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -293,8 +287,7 @@ class _PaymentPageState extends State<PaymentPage> {
                                   setState(() {
                                     isCreditCardSelected = value!;
                                     if (isCreditCardSelected) {
-                                      isCashSelected =
-                                          false; // Uncheck Cash if Credit Card is selected
+                                      isCashSelected = false;
                                     }
                                   });
                                 },
@@ -354,17 +347,6 @@ class _PaymentPageState extends State<PaymentPage> {
                 ),
                 Container(
                   padding: EdgeInsets.only(left: 30, top: 10),
-                  // decoration: BoxDecoration(
-                  //   borderRadius: BorderRadius.circular(30),
-                  //   boxShadow: [
-                  //     BoxShadow(
-                  //       color: Colors.white.withOpacity(0.1),
-                  //       spreadRadius: 1,
-                  //       blurRadius: 20,
-                  //       offset: Offset(210, 10),
-                  //     ),
-                  //   ],
-                  // ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -381,7 +363,7 @@ class _PaymentPageState extends State<PaymentPage> {
                           },
                           style: ElevatedButton.styleFrom(
                             padding: EdgeInsets.symmetric(
-                                vertical: 12, horizontal: 20), // Adjust padding
+                                vertical: 12, horizontal: 20),
                             textStyle: GoogleFonts.assistant(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -392,7 +374,7 @@ class _PaymentPageState extends State<PaymentPage> {
                             style: GoogleFonts.assistant(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color : const Color.fromARGB(255, 51, 102, 190),
+                              color: const Color.fromARGB(255, 51, 102, 190),
                             ),
                           ),
                         ),

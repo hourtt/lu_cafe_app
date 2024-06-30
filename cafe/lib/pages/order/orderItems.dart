@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 class OrderItems extends StatefulWidget {
   final String name;
   final String price;
-  final String image;
+  final String image; // Image path for the item
   final int quantity;
   final ValueChanged<int> onQuantityChanged;
   final VoidCallback onDelete;
@@ -69,7 +69,7 @@ class _OrderItemsState extends State<OrderItems> {
           motion: ScrollMotion(),
           children: [
             SlidableAction(
-              borderRadius:BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12),
               onPressed: (context) => widget.onDelete(),
               backgroundColor: Color(0xFFFE4A49),
               foregroundColor: Colors.white,
@@ -107,8 +107,7 @@ class _OrderItemsState extends State<OrderItems> {
                     ],
                   ),
                   child: Image.asset(
-                    "images/drink/${widget.image}.png",
-                    width: 110,
+                    widget.image, // Use the provided image path
                     height: 100,
                   ),
                 ),

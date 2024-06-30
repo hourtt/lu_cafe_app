@@ -1,7 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api, use_key_in_widget_constructors, prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:cafe/pages/order/order_provider.dart';
 import 'package:cafe/widgets/itemWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BottomSheetContent extends StatefulWidget {
   final String itemName;
@@ -19,7 +21,6 @@ class BottomSheetContent extends StatefulWidget {
   @override
   _BottomSheetContentState createState() => _BottomSheetContentState();
 }
-
 
 class _BottomSheetContentState extends State<BottomSheetContent> {
   late String currentOption;
@@ -45,6 +46,13 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
   }
 
   void addToCart() {
+    Map<String, dynamic> item = {
+      'name': widget.itemName,
+      'price': widget.price,
+      'quantity': quantityCount,
+      'quality': currentOption,
+    };
+    Provider.of<OrderProvider>(context, listen: false).addItem(item);
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -155,9 +163,11 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                   groupValue: currentOption,
                   onChanged: (value) {
                     setState(() {
-                      currentOption = value!;
+                      currentOption =
+                          value!; //* if the currentOPtions isn't equal to the value
                     });
-                    widget.onOptionChanged(value!);
+                    widget.onOptionChanged(
+                        value!); //* then the option will change to the value which isn't equal with the currentOptions
                   },
                 ),
               ),
@@ -243,7 +253,9 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
           SizedBox(height: 50),
           Center(
             child: ElevatedButton(
-              onPressed: addToCart,
+              onPressed: () {
+                addToCart();
+              },
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
                 backgroundColor: Color.fromARGB(255, 74, 140, 215),
