@@ -356,7 +356,7 @@ class _OrderPageState extends State<OrderPage> {
                             ),
                           ),
                           Text(
-                            "-\0.00៛", // Update this value as per the coupon discount logic
+                            "-\$0.00", // Update this value as per the coupon discount logic
                             style: GoogleFonts.assistant(
                               fontSize: 16,
                             ),

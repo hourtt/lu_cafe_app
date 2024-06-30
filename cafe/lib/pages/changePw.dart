@@ -1,4 +1,6 @@
 
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 class ChangePassword extends StatefulWidget{
@@ -27,7 +29,7 @@ class _ChangePasswordState extends State<ChangePassword> {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
+          colors: const [
             Color.fromARGB(255, 74, 140, 215),
             Color.fromARGB(255, 217, 222, 222)
           ],
@@ -211,7 +213,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                           onPressed: (){
                             if(_formKey.currentState!.validate()){
                               print ("Success");
-                            };
+                            }
                           },
                           child: const Text("Submit",
                             style: TextStyle(

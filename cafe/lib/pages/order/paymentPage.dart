@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 class PaymentPage extends StatefulWidget {
   final List<Map<String, dynamic>> orderItems;
 
-  PaymentPage({required this.orderItems});
+  const PaymentPage({required this.orderItems});
 
   @override
   _PaymentPageState createState() => _PaymentPageState();

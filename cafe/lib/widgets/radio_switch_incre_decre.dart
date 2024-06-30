@@ -246,7 +246,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
               onPressed: addToCart,
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
-                backgroundColor: const Color.fromARGB(255, 120, 125, 121),
+                backgroundColor: Color.fromARGB(255, 74, 140, 215),
               ),
               child: Text(
                 "Add to Cart",

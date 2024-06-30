@@ -12,7 +12,7 @@ class OrderItems extends StatefulWidget {
   final ValueChanged<int> onQuantityChanged;
   final VoidCallback onDelete;
 
-  OrderItems({
+  const OrderItems({
     required this.name,
     required this.price,
     required this.image,
