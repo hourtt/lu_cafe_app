@@ -26,67 +26,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
   late String currentOption;
   int quantityCount = 1;
   @override
-  void initState() {
-    super.initState();
-    currentOption = widget.currentOption;
-  }
 
-  void decrementQuantity() {
-    setState(() {
-      if (quantityCount > 1) {
-        quantityCount--;
-      }
-    });
-  }
-
-  void incrementQuantity() {
-    setState(() {
-      quantityCount++;
-    });
-  }
-
-  void addToCart() {
-    Map<String, dynamic> item = {
-      //* Store an item name, price, quantity, quality
-      'name': widget.itemName,
-      'price': widget.price,
-      'quantity': quantityCount,
-      'quality': currentOption,
-    };
-    Provider.of<OrderProvider>(context, listen: false)
-        .addItem(item); //* Using provider to add an item to the order page
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: Colors.black54.withOpacity(0.6),
-        insetPadding: EdgeInsets.only(top: 20),
-        title: Text(
-          "Successfully added to cart",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 18,
-            color: Colors.white,
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-              Navigator.pop(context);
-            },
-            child: Text(
-              "OK",
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -269,6 +209,67 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
                 ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  
+ @override
+  void initState() {
+    super.initState();
+    currentOption = widget.currentOption;
+  }
+
+  void decrementQuantity() {
+    setState(() {
+      if (quantityCount > 1) {
+        quantityCount--;
+      }
+    });
+  }
+
+  void incrementQuantity() {
+    setState(() {
+      quantityCount++;
+    });
+  }
+
+  void addToCart() {
+    Map<String, dynamic> item = {
+      //* Store an item name, price, quantity, quality
+      'name': widget.itemName,
+      'price': widget.price,
+      'quantity': quantityCount,
+      'quality': currentOption,
+    };
+    Provider.of<OrderProvider>(context, listen: false)
+        .addItem(item); //* Using provider to add an item to the order page
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Colors.black54.withOpacity(0.6),
+        insetPadding: EdgeInsets.only(top: 20),
+        title: Text(
+          "Successfully added to cart",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.white,
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.pop(context);
+            },
+            child: Text(
+              "OK",
+              style: TextStyle(
+                color: Colors.white,
               ),
             ),
           ),
