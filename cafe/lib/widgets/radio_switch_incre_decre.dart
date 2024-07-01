@@ -19,7 +19,7 @@ class BottomSheetContent extends StatefulWidget {
   });
 
   @override
-  _BottomSheetContentState createState() => _BottomSheetContentState();
+  State<BottomSheetContent> createState() => _BottomSheetContentState();
 }
 
 class _BottomSheetContentState extends State<BottomSheetContent> {
@@ -89,8 +89,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                     onChanged: (value) {
                       setState(() {
                         //* Include setState
-                        currentOption =
-                            value!; //* if the current option is not equal with the value
+                        currentOption =value!; //* if the current option is not equal with the value
                       });
                       widget.onOptionChanged(value!);
                     }),
@@ -216,7 +215,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
       ),
     );
   }
-  
+
  @override
   void initState() {
     super.initState();
