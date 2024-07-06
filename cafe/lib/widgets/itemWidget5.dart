@@ -18,23 +18,20 @@ final List<String> options = [
 ];
 
 class _ItemsWidget5State extends State<ItemsWidget5> {
-
-   PersistentBottomSheetController addToCart5(
-      BuildContext context, int i) {
+  PersistentBottomSheetController addToCart5(BuildContext context, int i) {
     return showBottomSheet(
       context: context,
       builder: (BuildContext context) {
         return BottomSheetContent5(
-          itemName: itemNames[i],
-          price: price[i],
-          
+          itemName:itemNames[i],
+          price:price[i], 
         );
       },
     );
   }
 
   // List of item names
- final List<String> itemNames = [
+  final List<String> itemNames = [
     "Item 1",
     "Item 2",
     "Item 3",
@@ -230,4 +227,3 @@ class _ItemsWidget5State extends State<ItemsWidget5> {
     );
   }
 }
-
