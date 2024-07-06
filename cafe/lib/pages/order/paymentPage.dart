@@ -19,7 +19,7 @@ class _PaymentPageState extends State<PaymentPage> {
 
   double calculateItemTotalPrice(int index) {
     double price = double.parse(widget.orderItems[index]['price'].substring(1));
-    return price * widget.orderItems[index]['quantity'];
+    return price * widget.orderItems[index]["quantity"];
   }
 
   double calculateTotal() {
