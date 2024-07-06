@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class ItemsWidget3 extends StatefulWidget {
   @override
-  State<ItemsWidget3> createState() => _IItemsWidget3State();
+  State<ItemsWidget3> createState() => _ItemsWidget3State();
 }
 
 final List<String> options = [
@@ -16,7 +16,7 @@ final List<String> options = [
   "No Sugar",
 ];
 
-class _IItemsWidget3State extends State<ItemsWidget3> {
+class _ItemsWidget3State extends State<ItemsWidget3> {
   @override
   String currentOption = options[0];
 

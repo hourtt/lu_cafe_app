@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, override_on_non_overriding_member
 
 // import 'package:flutter/cupertino.dart';
-import 'package:cafe/widgets/radio_switch_incre_decre.dart';
+import 'package:cafe/widgets/for_item_5.dart';
 import 'package:flutter/material.dart';
 // import 'package:western/widgets/navBar.dart';
 
@@ -18,22 +18,16 @@ final List<String> options = [
 ];
 
 class _ItemsWidget5State extends State<ItemsWidget5> {
-  String currentOption = options[0];
 
-  PersistentBottomSheetController customShowBottomSheet(
+   PersistentBottomSheetController addToCart5(
       BuildContext context, int i) {
     return showBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return BottomSheetContent(
+        return BottomSheetContent5(
           itemName: itemNames[i],
           price: price[i],
-          currentOption: currentOption,
-          onOptionChanged: (value) {
-            setState(() {
-              currentOption = value;
-            });
-          },
+          
         );
       },
     );
@@ -219,7 +213,7 @@ class _ItemsWidget5State extends State<ItemsWidget5> {
                       SizedBox(width: 8),
                       IconButton(
                         onPressed: () {
-                          customShowBottomSheet(context, i);
+                          addToCart5(context, i);
                         },
                         icon: const Icon(Icons.add),
                         style: IconButton.styleFrom(

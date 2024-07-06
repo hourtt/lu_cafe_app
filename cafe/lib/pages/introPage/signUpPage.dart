@@ -91,13 +91,13 @@ class SignUpPage extends StatelessWidget {
               ),
         
         
-              const SizedBox(height: 33,),
+              const SizedBox(height: 8,),
         
         
           // SIGN UP BUTTON
             Container(
-                  padding:const EdgeInsets.all (20.0),
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding:const EdgeInsets.all (3.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: TextButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/home');
