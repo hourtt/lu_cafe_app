@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api, use_key_in_widget_constructors, prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cafe/pages/order/order_provider.dart';
 import 'package:cafe/widgets/itemWidget.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,6 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
   late String currentOption;
   int quantityCount = 1;
   @override
-
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -89,7 +89,8 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                     onChanged: (value) {
                       setState(() {
                         //* Include setState
-                        currentOption =value!; //* if the current option is not equal with the value
+                        currentOption =
+                            value!; //* if the current option is not equal with the value
                       });
                       widget.onOptionChanged(value!);
                     }),
@@ -191,23 +192,56 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
               ),
             ],
           ),
-          SizedBox(height: 50),
+          SizedBox(height: 25),
+          //      Center(
+          //   child: ElevatedButton(
+          //     onPressed: () {
+          //       addToCart();
+          //     },
+          //     style: ElevatedButton.styleFrom(
+          //       padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
+          //       backgroundColor: Color.fromARGB(255, 74, 140, 215),
+          //     ),
+          //     child: Text(
+          //       "Add to Cart",
+          //       style: TextStyle(
+          //         fontSize: 20,
+          //         color: Colors.white,
+          //         fontWeight: FontWeight.w600,
+          //       ),
+          //     ),
+          //   ),
+          // ),
           Center(
-            child: ElevatedButton(
-              onPressed: () {
-                addToCart();
-              },
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
-                backgroundColor: Color.fromARGB(255, 74, 140, 215),
-              ),
-              child: Text(
-                "Add to Cart",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 80, vertical: 19),
+              child: AnimatedButton(
+                //* New alert dialog
+                height: 60,
+                text: 'Add to Cart',
+                color: Color.fromARGB(255, 74, 140, 215),
+                pressEvent: () {
+                  addToCart(); //* add addtoCart Function here
+                  AwesomeDialog(
+                    padding: EdgeInsets.all(20),
+                    context: context,
+                    dialogType: DialogType.success,
+                    borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                    width: 400,
+                    buttonsBorderRadius: const BorderRadius.all(
+                      Radius.circular(2),
+                    ),
+                    dismissOnTouchOutside: false,
+                    dismissOnBackKeyPress: false,
+                    headerAnimationLoop: false,
+                    animType: AnimType.bottomSlide,
+                    title: 'Success!!',
+                    desc: 'Your item has been added to the cart',
+                    btnOkOnPress: () {},
+                  ).show();
+                },
               ),
             ),
           ),
@@ -216,7 +250,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
     );
   }
 
- @override
+  @override
   void initState() {
     super.initState();
     currentOption = widget.currentOption;
@@ -246,34 +280,35 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
     };
     Provider.of<OrderProvider>(context, listen: false)
         .addItem(item); //* Using provider to add an item to the order page
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: Colors.black54.withOpacity(0.6),
-        insetPadding: EdgeInsets.only(top: 20),
-        title: Text(
-          "Successfully added to cart",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 18,
-            color: Colors.white,
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-              Navigator.pop(context);
-            },
-            child: Text(
-              "OK",
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+    //       showDialog(
+    //   context: context,
+    //   builder: (context) => AlertDialog(
+    //     backgroundColor: Colors.black54.withOpacity(0.6),
+    //     insetPadding: EdgeInsets.only(top: 20),
+    //     title: Text(
+    //       "Successfully added to cart",
+    //       textAlign: TextAlign.center,
+    //       style: TextStyle(
+    //         fontSize: 18,
+    //         color: Colors.white,
+    //       ),
+    //     ),
+    //     actions: [
+    //       TextButton(
+    //         onPressed: () {
+    //           Navigator.pop(context);
+    //           Navigator.pop(context);
+    //         },
+    //         child: Text(
+    //           "OK",
+    //           style: TextStyle(
+    //             color: Colors.white,
+    //           ),
+    //         ),
+    //       ),
+    //     ],
+    //   ),
+    // );
+  } //* Remove showDialog
 }
+//* download package for AnimatedButton : flutter pub add awesome_dialog

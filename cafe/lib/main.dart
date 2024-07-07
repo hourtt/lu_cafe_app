@@ -41,9 +41,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/', // Set the initial route to the IntroPage
+      initialRoute: '/', //* Set the initial route to the IntroPage
       routes: {
-        "/": (context) => IntroPage(), // Show IntroPage first
+        "/": (context) => IntroPage(), // *Show IntroPage first
         '/home': (context) => HomePage(),
         '/menu': (context) => MenuPage(),
         '/cart': (context) => OrderPage(),

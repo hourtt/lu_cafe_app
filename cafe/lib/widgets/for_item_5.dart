@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api, use_key_in_widget_constructors, prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cafe/pages/order/order_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,6 @@ class _BottomSheetContent5State extends State<BottomSheetContent5> {
   late String currentOption;
   int quantityCount = 1;
   @override
-
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -96,22 +96,54 @@ class _BottomSheetContent5State extends State<BottomSheetContent5> {
             ],
           ),
           SizedBox(height: 50),
+          //      Center(
+          //   child: ElevatedButton(
+          //     onPressed: () {
+          //       addToCart();
+          //     },
+          //     style: ElevatedButton.styleFrom(
+          //       padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
+          //       backgroundColor: Color.fromARGB(255, 74, 140, 215),
+          //     ),
+          //     child: Text(
+          //       "Add to Cart",
+          //       style: TextStyle(
+          //         fontSize: 20,
+          //         color: Colors.white,
+          //         fontWeight: FontWeight.w600,
+          //       ),
+          //     ),
+          //   ),
+          // ),
           Center(
-            child: ElevatedButton(
-              onPressed: () {
-                addToCart5();
-              },
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
-                backgroundColor: Color.fromARGB(255, 74, 140, 215),
-              ),
-              child: Text(
-                "Add to Cart",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 80, vertical: 19),
+              child: AnimatedButton(
+                //* new alert dialog
+                height: 200,
+                text: 'Add to Cart',
+                color: Color.fromARGB(255, 74, 140, 215),
+                pressEvent: () {
+                  addToCart5(); //* add addtoCart5 Function here
+                  AwesomeDialog(
+                    context: context,
+                    dialogType: DialogType.success,
+                    borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                    width: 400,
+                    buttonsBorderRadius: const BorderRadius.all(
+                      Radius.circular(2),
+                    ),
+                    dismissOnTouchOutside: false,
+                    dismissOnBackKeyPress: false,
+                    headerAnimationLoop: false,
+                    animType: AnimType.bottomSlide,
+                    title: 'Success!!',
+                    desc: 'Your item has been added to the cart',
+                    btnOkOnPress: () {},
+                  ).show();
+                },
               ),
             ),
           ),
@@ -119,6 +151,14 @@ class _BottomSheetContent5State extends State<BottomSheetContent5> {
       ),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+    currentOption = widget
+        .itemName; //* the currentOption will be called by the itemName (it's doesn't has an option to choose so we replace the option with itemName instead)
+  }
+
   void decrementQuantity() {
     setState(() {
       if (quantityCount > 1) {
@@ -143,34 +183,35 @@ class _BottomSheetContent5State extends State<BottomSheetContent5> {
     };
     Provider.of<OrderProvider>(context, listen: false)
         .addItem(item); //* Using provider to add an item to the order page
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: Colors.black54.withOpacity(0.6),
-        insetPadding: EdgeInsets.only(top: 20),
-        title: Text(
-          "Successfully added to cart",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 18,
-            color: Colors.white,
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-              Navigator.pop(context);
-            },
-            child: Text(
-              "OK",
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+    //       showDialog(
+    //   context: context,
+    //   builder: (context) => AlertDialog(
+    //     backgroundColor: Colors.black54.withOpacity(0.6),
+    //     insetPadding: EdgeInsets.only(top: 20),
+    //     title: Text(
+    //       "Successfully added to cart",
+    //       textAlign: TextAlign.center,
+    //       style: TextStyle(
+    //         fontSize: 18,
+    //         color: Colors.white,
+    //       ),
+    //     ),
+    //     actions: [
+    //       TextButton(
+    //         onPressed: () {
+    //           Navigator.pop(context);
+    //           Navigator.pop(context);
+    //         },
+    //         child: Text(
+    //           "OK",
+    //           style: TextStyle(
+    //             color: Colors.white,
+    //           ),
+    //         ),
+    //       ),
+    //     ],
+    //   ),
+    // );
+  } //* remove ShowDialog
+  
 }
