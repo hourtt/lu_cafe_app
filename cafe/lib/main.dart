@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
         '/notification': (context) => Notificationpage(),
         //"/order": (context) => PaymentPage(orderItems: [],),
         "/order": (context) => OrderPage(),
-        //"/payment": (context) => PaymentPage(orderItems: [],),
+        //"payment": (context) => PaymentPage(orderItems: [],),
         "/trackOrder": (context) => TrackOrder(),
         "/account": (context) => ProfilePage(),
         "/signIn": (context) => SignInPage(),
