@@ -27,6 +27,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
   late String currentOption;
   int quantityCount = 1;
   @override
+
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -89,8 +90,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                     onChanged: (value) {
                       setState(() {
                         //* Include setState
-                        currentOption =
-                            value!; //* if the current option is not equal with the value
+                        currentOption =value!; //* if the current option is not equal with the value
                       });
                       widget.onOptionChanged(value!);
                     }),
@@ -161,45 +161,53 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
               SizedBox(
                 child: Row(
                   children: [
-                    IconButton(
+                    _buildIconButton(
+                      icon: Icons.remove_circle_outline,
                       onPressed: decrementQuantity,
-                      icon: Icon(
-                        Icons.remove_circle,
-                        size: 30,
-                      ),
+                      color: Color.fromARGB(255, 220, 87, 77),
                     ),
-                    SizedBox(
-                      width: 40,
+                    SizedBox(width : 10),
+                    Container(
+                      width: 35,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(190, 124, 190, 236),
+                        border: Border.all(
+                          color: Color.fromARGB(255, 142, 160, 193),
+                          width: 2,
+                        ),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
                       child: Center(
                         child: Text(
-                          quantityCount.toString(),
+                          '$quantityCount',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 18,
+                            color: Color.fromARGB(255, 49, 50, 51),
                             fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
                     ),
-                    IconButton(
+                    SizedBox(width : 10),
+                    _buildIconButton(
+                      icon: Icons.add_box_outlined,
                       onPressed: incrementQuantity,
-                      icon: Icon(
-                        Icons.add_circle,
-                        size: 30,
-                      ),
+                      color: Color.fromARGB(255, 41, 118, 44),
                     ),
                   ],
                 ),
               ),
             ],
           ),
-          SizedBox(height: 25),
-          //      Center(
+          SizedBox(height: 35),
+          // Center(
           //   child: ElevatedButton(
           //     onPressed: () {
           //       addToCart();
           //     },
           //     style: ElevatedButton.styleFrom(
-          //       padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
+          //       padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
           //       backgroundColor: Color.fromARGB(255, 74, 140, 215),
           //     ),
           //     child: Text(
@@ -212,13 +220,16 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
           //     ),
           //   ),
           // ),
-          Center(
+           Center(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 80, vertical: 19),
+              padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
               child: AnimatedButton(
                 //* New alert dialog
-                height: 60,
+                height: 55,
                 text: 'Add to Cart',
+                buttonTextStyle: TextStyle(fontSize: 18,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontWeight: FontWeight.w400,),
                 color: Color.fromARGB(255, 74, 140, 215),
                 pressEvent: () {
                   addToCart(); //* add addtoCart Function here
@@ -250,7 +261,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
     );
   }
 
-  @override
+ @override
   void initState() {
     super.initState();
     currentOption = widget.currentOption;
@@ -278,37 +289,26 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
       'quantity': quantityCount,
       'quality': currentOption,
     };
-    Provider.of<OrderProvider>(context, listen: false)
-        .addItem(item); //* Using provider to add an item to the order page
-    //       showDialog(
-    //   context: context,
-    //   builder: (context) => AlertDialog(
-    //     backgroundColor: Colors.black54.withOpacity(0.6),
-    //     insetPadding: EdgeInsets.only(top: 20),
-    //     title: Text(
-    //       "Successfully added to cart",
-    //       textAlign: TextAlign.center,
-    //       style: TextStyle(
-    //         fontSize: 18,
-    //         color: Colors.white,
-    //       ),
-    //     ),
-    //     actions: [
-    //       TextButton(
-    //         onPressed: () {
-    //           Navigator.pop(context);
-    //           Navigator.pop(context);
-    //         },
-    //         child: Text(
-    //           "OK",
-    //           style: TextStyle(
-    //             color: Colors.white,
-    //           ),
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // );
-  } //* Remove showDialog
+    Provider.of<OrderProvider>(context, listen: false).addItem(item); //* Using provider to add an item to the order page
+  }
+  Widget _buildIconButton({
+    required IconData icon,
+    required VoidCallback onPressed,
+    required Color color,
+  }) {
+    return Container(
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: color.withOpacity(0.15),
+      ),
+      child: IconButton(
+        icon: Icon(icon),
+        color: color,
+        iconSize: 24,
+        onPressed: onPressed,
+      ),
+    );
+  }
 }
-//* download package for AnimatedButton : flutter pub add awesome_dialog

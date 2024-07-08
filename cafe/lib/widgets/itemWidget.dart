@@ -641,7 +641,7 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                         },
                         icon: const Icon(Icons.add),
                         style: IconButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 195, 244, 228),
+                          backgroundColor: Color.fromARGB(145, 200, 209, 225),
                         ),
                       ),
                     ],
@@ -654,4 +654,3 @@ class _ItemsWidgetState extends State<ItemsWidget> {
     );
   }
 }
-

@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, override_on_non_overriding_member
 
 // import 'package:flutter/cupertino.dart';
+// import 'package:western/widgets/radio_switch_incre_decre.dart';
 import 'package:cafe/widgets/for_item_5.dart';
 import 'package:flutter/material.dart';
+
 // import 'package:western/widgets/navBar.dart';
 
 class ItemsWidget5 extends StatefulWidget {
@@ -18,20 +20,29 @@ final List<String> options = [
 ];
 
 class _ItemsWidget5State extends State<ItemsWidget5> {
-  PersistentBottomSheetController addToCart5(BuildContext context, int i) {
+  String currentOption = options[0];
+
+  PersistentBottomSheetController customShowBottomSheet(
+      BuildContext context, int i) {
     return showBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return BottomSheetContent5(
-          itemName:itemNames[i],
-          price:price[i], 
+        return BottomSheetContent2(
+          itemName: itemNames[i],
+          price: price[i],
+          currentOption: currentOption,
+          onOptionChanged: (value) {
+            setState(() {
+              currentOption = value;
+            });
+          },
         );
       },
     );
   }
 
   // List of item names
-  final List<String> itemNames = [
+ final List<String> itemNames = [
     "Item 1",
     "Item 2",
     "Item 3",
@@ -74,10 +85,10 @@ class _ItemsWidget5State extends State<ItemsWidget5> {
     "15",
     "16",
     "17",
-    "Special Olatte",
-    "Sprite, boost your mood",
-    "With Pepsi, everything is yummy",
-    "Coke, Make your food more delicious",
+    "Special Olatte, plus the vitamins inside",
+    "Sprite, boost your mood and happy with sprite",
+    "With Pepsi, everything is yummy and fun",
+    "Coke, Make your food more delicious and more enjoyable",
     "22",
   ];
 
@@ -183,7 +194,7 @@ class _ItemsWidget5State extends State<ItemsWidget5> {
                         margin: EdgeInsets.symmetric(vertical: 7),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Color.fromARGB(255, 106, 132, 173),
+                          color: Color.fromARGB(255, 89, 111, 149),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.2),
@@ -210,11 +221,11 @@ class _ItemsWidget5State extends State<ItemsWidget5> {
                       SizedBox(width: 8),
                       IconButton(
                         onPressed: () {
-                          addToCart5(context, i);
+                          customShowBottomSheet(context, i);
                         },
                         icon: const Icon(Icons.add),
                         style: IconButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 195, 244, 228),
+                          backgroundColor: Color.fromARGB(145, 200, 209, 225),
                         ),
                       ),
                     ],

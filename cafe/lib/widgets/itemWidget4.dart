@@ -79,11 +79,11 @@ final List<String> itemNames = [
     " ds kk",
     "Refreshing chocolate served over ice",
     "Tea with bubble inside, fresh",
+    "fr",
+    "Refreshing chocolate served over ice",
+    "Tea with bubble inside, boosting your energy",
     "Olong tea, make your day like tea",
-    "Ovaltine, boost your energy",
-    "Description 12",
-    "Description 13",
-    "Description 14"
+    "Ovaltine, boost your energy and refresh your day"
   ];
 
   final List<String> price = [
@@ -139,7 +139,7 @@ final List<String> itemNames = [
                     child: Container(
                       margin: EdgeInsets.all(10),
                       child: Image.asset(
-                        "images/drink/${i + 1}.png",
+                       "images/drink/${i + 1}.png",
                         width: 130,
                         height: 130,
                         fit: BoxFit.contain,
@@ -215,7 +215,7 @@ final List<String> itemNames = [
                         },
                         icon: const Icon(Icons.add),
                         style: IconButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 195, 244, 228),
+                          backgroundColor:Color.fromARGB(145, 200, 209, 225),
                         ),
                       ),
                     ],
@@ -228,4 +228,3 @@ final List<String> itemNames = [
     );
   }
 }
-

@@ -1,12 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, override_on_non_overriding_member
 
+
 import 'package:cafe/widgets/radio_switch_incre_decre.dart';
 import 'package:flutter/material.dart';
 // import 'package:western/widgets/navBar.dart';
 
 class ItemsWidget3 extends StatefulWidget {
   @override
-  State<ItemsWidget3> createState() => _ItemsWidget3State();
+  State<ItemsWidget3> createState() => _IItemsWidget3State();
 }
 
 final List<String> options = [
@@ -16,11 +17,11 @@ final List<String> options = [
   "No Sugar",
 ];
 
-class _ItemsWidget3State extends State<ItemsWidget3> {
+class _IItemsWidget3State extends State<ItemsWidget3> {
   @override
   String currentOption = options[0];
 
-  PersistentBottomSheetController customShowBottomSheet(
+  PersistentBottomSheetController customShowBottomSheet( 
       BuildContext context, int i) {
     return showBottomSheet(
       context: context,
@@ -208,7 +209,7 @@ class _ItemsWidget3State extends State<ItemsWidget3> {
                         },
                         icon: const Icon(Icons.add),
                         style: IconButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 195, 244, 228),
+                          backgroundColor: Color.fromARGB(145, 200, 209, 225),
                         ),
                       ),
                     ],

@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, override_on_non_overriding_member
 
 // import 'package:flutter/cupertino.dart';
-import 'package:cafe/widgets/radio_switch_incre_decre.dart';
 import 'package:flutter/material.dart';
+import 'radio_switch_incre_decre.dart';
 // import 'package:western/widgets/navBar.dart';
 
 class ItemsWidget2 extends StatefulWidget {
@@ -191,7 +191,7 @@ class _ItemsWidget2State extends State<ItemsWidget2> {
                         },
                         icon: const Icon(Icons.add),
                         style: IconButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 195, 244, 228),
+                          backgroundColor:Color.fromARGB(145, 200, 209, 225),
                         ),
                       ),
                     ],
