@@ -1,7 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class TrackOrder extends StatelessWidget {
   const TrackOrder({super.key});
@@ -264,7 +264,7 @@ class OrderServedMessage extends StatelessWidget {
     return Center(
       child: AlertDialog(
         title: const Text("Order Served"),
-        content: SizedBox(
+        content: Container(
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.height * 0.52,
           child: Column(
