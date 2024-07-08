@@ -225,7 +225,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
               padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
               child: AnimatedButton(
                 //* New alert dialog
-                height: 55,
+                height: 56,
                 text: 'Add to Cart',
                 buttonTextStyle: TextStyle(fontSize: 18,
                             color: Color.fromARGB(255, 255, 255, 255),
