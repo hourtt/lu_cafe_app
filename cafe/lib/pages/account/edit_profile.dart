@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -255,7 +255,8 @@ class _EditProfileState extends State<EditProfile> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(80),
                         ),
-                        child: Text(
+                        child:
+                         Text(
                           "Save",
                           style: TextStyle(
                             color: Color.fromARGB(255, 90, 146, 210),
