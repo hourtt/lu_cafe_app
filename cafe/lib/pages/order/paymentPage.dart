@@ -1,4 +1,5 @@
-// ignore_for_file: sort_child_properties_last, library_private_types_in_public_api
+
+// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors, sort_child_properties_last
 
 import 'package:cafe/pages/order/trackOrder.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class _PaymentPageState extends State<PaymentPage> {
 
   double calculateItemTotalPrice(int index) {
     double price = double.parse(widget.orderItems[index]['price'].substring(1));
-    return price * widget.orderItems[index]["quantity"];
+    return price * widget.orderItems[index]['quantity'];
   }
 
   double calculateTotal() {
