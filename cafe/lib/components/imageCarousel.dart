@@ -1,5 +1,6 @@
 import 'package:cafe/components/indicatorDot.dart';
 import 'package:flutter/material.dart';
+
 class ImageCarousel extends StatefulWidget {
   const ImageCarousel({Key? key}) : super(key: key);
 
@@ -8,7 +9,7 @@ class ImageCarousel extends StatefulWidget {
 }
 
 class _ImageCarouselState extends State<ImageCarousel> {
-  double defaultPadding =12.0;
+  double defaultPadding = 12.0;
   int _currentPage = 0;
 
   final List<String> categories = [
@@ -16,9 +17,6 @@ class _ImageCarouselState extends State<ImageCarousel> {
     'images/drinkItems/dt1.png',
     'images/drinkItems/dt2.png',
     'images/drinkItems/dt3.png',
-    'images/drinkItems/1a.png',
-    'images/drinkItems/2a.png',
-    'images/drinkItems/3a.png',
   ];
 
   @override
