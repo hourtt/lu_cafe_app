@@ -1,12 +1,17 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, library_private_types_in_public_api
 
-import 'package:cafe/pages/notificationPage.dart';
-import 'package:cafe/pages/order/orderItems.dart';
+// import 'package:cafe/pages/notificationPage.dart';
+// import 'package:cafe/pages/order/orderItems.dart';
+// import 'package:cafe/pages/order/order_provider.dart';
+// import 'package:cafe/pages/order/paymentPage.dart';
 import 'package:cafe/pages/order/order_provider.dart';
-import 'package:cafe/pages/order/paymentPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
+import '../notificationPage.dart';
+import 'PaymentPage.dart';
+import 'orderItems.dart';
 
 class OrderPage extends StatefulWidget {
   const OrderPage({Key? key});
@@ -141,7 +146,7 @@ class _OrderPageState extends State<OrderPage> {
                       Padding(
                         padding:
                             EdgeInsets.only(bottom: screenSize.height * 0.01),
-                        child: OrderItems( //* Check this function on orderItems.dart
+                        child: OrderItems(
                           //* Item name,price,quantity at here
                           name: orderItems[i]['name'] ?? '',
                           price: orderItems[i]['price'] ?? 0.0,
