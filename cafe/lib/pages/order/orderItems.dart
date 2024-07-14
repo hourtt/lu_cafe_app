@@ -108,7 +108,7 @@ class _OrderItemsState extends State<OrderItems> {
                     ],
                   ),
                   child: Image.asset(
-                    widget.image, //* Modified
+                    widget.image,
                     height: 100,
                   ),
                 ),
