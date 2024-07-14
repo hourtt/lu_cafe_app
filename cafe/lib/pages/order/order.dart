@@ -23,13 +23,12 @@ class OrderPage extends StatefulWidget {
 class _OrderPageState extends State<OrderPage> {
   //* Update item quantity
   void updateQuantity(BuildContext context, int index, int newQuantity) {
-    Provider.of<OrderProvider>(context, listen: false).updateQuantity(index,
-        newQuantity); //* Using provider to listen to the item quantity which is updated
+    Provider.of<OrderProvider>(context, listen: false)
+        .updateQuantity(index, newQuantity);
   }
 
   void deleteItem(BuildContext context, int index) {
-    Provider.of<OrderProvider>(context, listen: false)
-        .removeItem(index); //* Using provider to listen and remove an item
+    Provider.of<OrderProvider>(context, listen: false).removeItem(index);
   }
 
   // Calculate item total price
@@ -147,10 +146,11 @@ class _OrderPageState extends State<OrderPage> {
                         padding:
                             EdgeInsets.only(bottom: screenSize.height * 0.01),
                         child: OrderItems(
-                          //* Item name,price,quantity at here
+                          //* Item name, price, quantity at here
                           name: orderItems[i]['name'] ?? '',
-                          price: orderItems[i]['price'] ?? 0.0,
-                          image: "images/drink/${i + 1}.png",
+                          price: orderItems[i]['price'] ?? '0.0',
+                          image:
+                              "images/drink/${i + 1}.png", // Ensure the correct image path is passed
                           quantity: orderItems[i]['quantity'] ?? 1,
                           onQuantityChanged: (newQuantity) =>
                               updateQuantity(context, i, newQuantity),
