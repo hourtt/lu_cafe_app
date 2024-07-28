@@ -345,12 +345,12 @@ class _PaymentPageState extends State<PaymentPage> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 30, top: 10),
+                  padding: EdgeInsets.only(left: 30, top: 8), //* change padding (top) from 10 to 8
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 220),
+                        padding: const EdgeInsets.only(left: 198),
                         child: ElevatedButton(
                           onPressed: () {
                             Navigator.push(
