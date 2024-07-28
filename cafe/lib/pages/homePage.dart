@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(screenSize.height * 0.11),
+          preferredSize: Size.fromHeight(screenSize.height * 0.12),
           child: AppBar(
             elevation: 0.0,
             backgroundColor: Colors.transparent,
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
           child: CustomScrollView(
             slivers: <Widget>[
               SliverPadding(
-                padding: EdgeInsets.symmetric(vertical: 50),
+                padding: EdgeInsets.symmetric(vertical: 25),
                 sliver: SliverToBoxAdapter(
                   child: ImageCarousel(),
                 ),
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                             color: const Color.fromARGB(255, 255, 249, 249),
                           ),
                         ),
-                        SizedBox(width: 5),
+                        SizedBox(width: 3.5),
                         TextButton(
                           child: Text(
                             "see more",
