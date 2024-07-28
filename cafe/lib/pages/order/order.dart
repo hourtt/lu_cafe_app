@@ -353,6 +353,7 @@ class _OrderPageState extends State<OrderPage> {
                         ],
                       ),
                     ),
+
                     Container(
                       padding: EdgeInsets.only(
                           left: 154,
@@ -374,7 +375,7 @@ class _OrderPageState extends State<OrderPage> {
                           Padding(
                             padding: const EdgeInsets.only(
                                 left:
-                                    78), //* decrease the left side from 100 to 78
+                                    50), //* decrease the left side from 100 to 50
                             child: ElevatedButton(
                               onPressed: () => Navigator.push(
                                   context,
