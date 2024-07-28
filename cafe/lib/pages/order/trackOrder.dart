@@ -11,7 +11,10 @@ class TrackOrder extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color.fromARGB(255, 74, 140, 215), Color.fromARGB(255, 217, 222, 222)],
+          colors: [
+            Color.fromARGB(255, 74, 140, 215),
+            Color.fromARGB(255, 217, 222, 222)
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -86,7 +89,8 @@ class TrackOrder extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const CircleAvatar(
-                    backgroundImage: NetworkImage('https://via.placeholder.com/150'),
+                    backgroundImage:
+                        NetworkImage('https://via.placeholder.com/150'),
                     radius: 24,
                   ),
                   const SizedBox(width: 20),
@@ -100,10 +104,9 @@ class TrackOrder extends StatelessWidget {
                       Text(
                         'LU Coffee',
                         style: TextStyle(
-                          fontSize: 18, 
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                       Text(
                         '9.5 (100+ ratings)',
@@ -135,7 +138,8 @@ class TrackOrder extends StatelessWidget {
                       context,
                       time: '8:30 AM',
                       title: 'Confirmed',
-                      description: 'Your order is confirmed and will be ready soon.',
+                      description:
+                          'Your order is confirmed and will be ready soon.',
                       isCompleted: true,
                     ),
                     _buildTimelineTile(
@@ -149,40 +153,42 @@ class TrackOrder extends StatelessWidget {
                       context,
                       time: '9:00 AM',
                       title: 'Delivered',
-                      description: 'Product delivered to you and marked as delivered.',
+                      description:
+                          'Product delivered to you and marked as delivered.',
                       isCompleted: false,
                     ),
                   ],
                 ),
               ),
-              //SizedBox(height: 5), 
+              //SizedBox(height: 5),
               Padding(
-                padding: const EdgeInsets.only(bottom : 30.0),
-                  child: Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _showConfirmationDialog(context);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 15),
-                        textStyle: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        backgroundColor: Colors.white,
-                        foregroundColor: const Color.fromARGB(255, 51, 102, 190),
+                padding: const EdgeInsets.only(bottom: 30.0),
+                child: Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _showConfirmationDialog(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 32, vertical: 15),
+                      textStyle: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
-                      child: const Text('Confirm Pick Up'),
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color.fromARGB(255, 51, 102, 190),
                     ),
+                    child: const Text('Confirm Pick Up'),
                   ),
                 ),
-              
+              ),
             ],
           ),
         ),
       ),
     );
   }
+
   void _showConfirmationDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -211,7 +217,9 @@ class TrackOrder extends StatelessWidget {
                 height: 16,
                 width: 16,
                 decoration: BoxDecoration(
-                  color: isCompleted ? Colors.green : const Color.fromARGB(255, 221, 213, 213),
+                  color: isCompleted
+                      ? Colors.green
+                      : const Color.fromARGB(255, 221, 213, 213),
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: const Color.fromARGB(255, 228, 219, 219),
@@ -241,12 +249,14 @@ class TrackOrder extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 title,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 4),
               Text(
                 description,
-                style: const TextStyle(fontSize: 14, color: Color.fromARGB(255, 238, 233, 233)),
+                style: const TextStyle(
+                    fontSize: 14, color: Color.fromARGB(255, 238, 233, 233)),
               ),
             ],
           ),
@@ -273,7 +283,7 @@ class OrderServedMessage extends StatelessWidget {
               Image.asset(
                 'images/final.png',
                 width: 200,
-                height: 400,
+                height: 350, //* change height from 400 to 350
                 fit: BoxFit.cover,
               ),
               const SizedBox(height: 5),
