@@ -17,16 +17,15 @@ import 'pages/IntroPage/introPage.dart';
 import 'pages/changePw.dart';
 import 'pages/homePage.dart';
 
-
 void main() {
   runApp(
-    MultiProvider(providers: [
-      ChangeNotifierProvider(create: (_)=> OrderProvider()),
-    ],
-      child:MyApp(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => OrderProvider()),
+      ],
+      child: MyApp(),
     ),
   );
-
 }
 
 class MyApp extends StatefulWidget {
