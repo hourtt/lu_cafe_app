@@ -27,7 +27,6 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
   late String currentOption;
   int quantityCount = 1;
   @override
-
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -90,7 +89,8 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                     onChanged: (value) {
                       setState(() {
                         //* Include setState
-                        currentOption =value!; //* if the current option is not equal with the value
+                        currentOption =
+                            value!; //* if the current option is not equal with the value
                       });
                       widget.onOptionChanged(value!);
                     }),
@@ -166,7 +166,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                       onPressed: decrementQuantity,
                       color: Color.fromARGB(255, 220, 87, 77),
                     ),
-                    SizedBox(width : 10),
+                    SizedBox(width: 10),
                     Container(
                       width: 35,
                       height: 30,
@@ -189,7 +189,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
                         ),
                       ),
                     ),
-                    SizedBox(width : 10),
+                    SizedBox(width: 10),
                     _buildIconButton(
                       icon: Icons.add_box_outlined,
                       onPressed: incrementQuantity,
@@ -220,16 +220,18 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
           //     ),
           //   ),
           // ),
-           Center(
+          Center(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
               child: AnimatedButton(
                 //* New alert dialog
                 height: 56,
                 text: 'Add to Cart',
-                buttonTextStyle: TextStyle(fontSize: 18,
-                            color: Color.fromARGB(255, 255, 255, 255),
-                            fontWeight: FontWeight.w400,),
+                buttonTextStyle: TextStyle(
+                  fontSize: 18,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontWeight: FontWeight.w400,
+                ),
                 color: Color.fromARGB(255, 74, 140, 215),
                 pressEvent: () {
                   addToCart(); //* add addtoCart Function here
@@ -261,7 +263,7 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
     );
   }
 
- @override
+  @override
   void initState() {
     super.initState();
     currentOption = widget.currentOption;
@@ -289,8 +291,10 @@ class _BottomSheetContentState extends State<BottomSheetContent> {
       'quantity': quantityCount,
       'quality': currentOption,
     };
-    Provider.of<OrderProvider>(context, listen: false).addItem(item); //* Using provider to add an item to the order page
+    Provider.of<OrderProvider>(context, listen: false).addItem(
+        item); //* Using provider to add an item to the order page (interaction)
   }
+
   Widget _buildIconButton({
     required IconData icon,
     required VoidCallback onPressed,
